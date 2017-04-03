@@ -1,0 +1,17 @@
+program GeekDelphi;
+
+uses
+  Forms,
+  uGeekDelphi in 'uGeekDelphi.pas' {FormMain},
+  UVendas in 'UVendas.pas' {frmMostraVendas},
+  UDMVendas in 'UDMVendas.pas' {DataModule1: TDataModule};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.CreateForm(TFormMain, FormMain);
+  Application.CreateForm(TfrmMostraVendas, frmMostraVendas);
+  Application.CreateForm(TDataModule1, DataModule1);
+  Application.Run;
+end.

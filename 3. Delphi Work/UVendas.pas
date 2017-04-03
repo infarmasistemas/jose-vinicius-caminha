@@ -1,0 +1,49 @@
+unit UVendas;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, WebAdapt, WebComp, DBAdapt, DBClient, DB, ADODB, Grids, DBGrids;
+
+type
+  TfrmMostraVendas = class(TForm)
+    qrVendas: TADOQuery;
+    qrVendasDat_Venda: TStringField;
+    qrVendasCod_Cliente: TIntegerField;
+    qrVendasDes_Client: TStringField;
+    qrVendasCod_Produto: TIntegerField;
+    qrVendasDes_Produt: TStringField;
+    qrVendasQtd_Produto: TIntegerField;
+    qrVendasVlr_TotItem: TBCDField;
+    DBGrid1: TDBGrid;
+    DataSource1: TDataSource;
+    procedure FormCreate(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmMostraVendas: TfrmMostraVendas;
+
+implementation
+
+uses UDMVendas, uGeekDelphi;
+
+{$R *.dfm}
+
+procedure TfrmMostraVendas.FormCreate(Sender: TObject);
+begin
+  qrVendas.Close;
+  qrVendas.SQL.Clear;
+  qrVendas.SQL.Text :=  'Select * From VENDAS';
+  qrVendas.Open;
+end;
+
+end.
+
+
+
+
